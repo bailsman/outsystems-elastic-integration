@@ -1,0 +1,299 @@
+{
+  "index_patterns": "os-mon-log-request-event*",
+  "version": 1,
+  "settings": {
+    "index.refresh_interval": "15s",
+    "index.number_of_shards": "1",
+    "index.lifecycle.name": "os-mon-log-ilm-policy",
+    "index.lifecycle.rollover_alias": "os-mon-log-request-event"
+  },
+  "mappings": {
+    "properties": {
+      "request": {
+        "properties": {
+          "total_extension_time": {
+            "type": "long"
+          },
+          "client_time": {
+            "type": "long"
+          },
+          "time_to_last_byte": {
+            "type": "long"
+          },
+          "total_extension_executions": {
+            "type": "long"
+          },
+          "network_time": {
+            "type": "long"
+          },
+          "total_query_executions": {
+            "type": "long"
+          },
+          "time_to_first_byte": {
+            "type": "long"
+          },
+          "total_consumed_integration_executions": {
+            "type": "long"
+          },
+          "server_duration": {
+            "type": "long"
+          },
+          "total_consumed_integration_time_class": {
+            "type": "keyword"
+          },
+          "total_duration": {
+            "type": "long"
+          },
+          "load_time": {
+            "type": "long"
+          },
+          "total_query_time": {
+            "type": "long"
+          },
+          "total_query_time_class": {
+            "type": "keyword"
+          },
+          "estimated_server_time": {
+            "type": "long"
+          },
+          "event_name": {
+            "type": "keyword"
+          },
+          "total_extension_time_class": {
+            "type": "keyword"
+          },
+          "event_details": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "ignore_above": 256,
+                "type": "keyword"
+              }
+            }
+          },
+          "total_consumed_integration_time": {
+            "type": "long"
+          },
+          "total_duration_class": {
+            "type": "keyword"
+          },
+          "key": {
+            "type": "keyword"
+          },
+          "group": {
+            "properties": {
+              "duration": {
+                "type": "long"
+              },
+              "name": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "TSAE": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "ignore_above": 256,
+            "type": "keyword"
+          }
+        }
+      },
+      "import": {
+        "properties": {
+          "latency": {
+            "type": "long"
+          }
+        }
+      },
+      "log": {
+        "properties": {
+          "data_source": {
+            "type": "keyword"
+          },
+          "instant": {
+            "type": "date"
+          }
+        }
+      },
+      "session": {
+        "properties": {
+          "size": {
+            "type": "long"
+          },
+          "visit_key": {
+            "type": "keyword"
+          },
+          "acquisition_time": {
+            "type": "long"
+          },
+          "viewstate_size": {
+            "type": "long"
+          },
+          "viewstate_size_class": {
+            "type": "keyword"
+          },
+          "size_class": {
+            "type": "keyword"
+          },
+          "visitor_key": {
+            "type": "keyword"
+          },
+          "key": {
+            "type": "keyword"
+          }
+        }
+      },
+      "user_key": {
+        "type": "keyword"
+      },
+      "BGTD": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "ignore_above": 256,
+            "type": "keyword"
+          }
+        }
+      },
+      "outsystems": {
+        "properties": {
+          "location_name": {
+            "type": "keyword"
+          },
+          "customer_name": {
+            "type": "keyword"
+          },
+          "environment_name": {
+            "type": "keyword"
+          }
+        }
+      },
+      "BGCK": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "ignore_above": 256,
+            "type": "keyword"
+          }
+        }
+      },
+      "@timestamp": {
+        "type": "date"
+      },
+      "application": {
+        "properties": {
+          "tenant_name": {
+            "type": "keyword"
+          },
+          "tenant_key": {
+            "type": "keyword"
+          },
+          "endpoint_key": {
+            "type": "keyword"
+          },
+          "endpoint_name": {
+            "type": "keyword"
+          },
+          "module_key": {
+            "type": "keyword"
+          },
+          "screen_resolution": {
+            "type": "keyword"
+          },
+          "action_key": {
+            "type": "keyword"
+          },
+          "environment": {
+            "properties": {
+              "name": {
+                "type": "keyword"
+              },
+              "key": {
+                "type": "keyword"
+              }
+            }
+          },
+          "action_name": {
+            "type": "keyword"
+          },
+          "name": {
+            "type": "keyword"
+          },
+          "frontend_name": {
+            "type": "keyword"
+          },
+          "client_ip": {
+            "type": "keyword"
+          },
+          "module_name": {
+            "type": "keyword"
+          },
+          "key": {
+            "type": "keyword"
+          }
+        }
+      },
+      "ecs": {
+        "properties": {
+          "version": {
+            "type": "keyword"
+          }
+        }
+      },
+      "TSAT": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "ignore_above": 256,
+            "type": "keyword"
+          }
+        }
+      },
+      "user_id": {
+        "type": "long"
+      },
+      "@version": {
+        "type": "keyword"
+      },
+      "BGBC": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "ignore_above": 256,
+            "type": "keyword"
+          }
+        }
+      },
+      "BGVR": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "ignore_above": 256,
+            "type": "keyword"
+          }
+        }
+      },
+      "EC": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "ignore_above": 256,
+            "type": "keyword"
+          }
+        }
+      },
+      "user_agent": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "ignore_above": 256,
+            "type": "keyword"
+          }
+        }
+      }
+    }
+  }
+}
