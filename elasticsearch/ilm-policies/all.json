@@ -5,7 +5,7 @@
         "actions": {
           "rollover": {
             "max_age": "24h",
-            "max_size": "200gb"
+            "max_size": "25gb"
           }
         }
       },
