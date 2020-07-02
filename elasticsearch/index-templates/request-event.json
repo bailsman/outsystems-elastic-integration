@@ -11,6 +11,9 @@
     "properties": {
       "request": {
         "properties": {
+          "error_count": {
+            "type": "long"
+          },
           "total_extension_time": {
             "type": "long"
           },
@@ -92,15 +95,6 @@
           }
         }
       },
-      "TSAE": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "ignore_above": 256,
-            "type": "keyword"
-          }
-        }
-      },
       "import": {
         "properties": {
           "latency": {
@@ -149,15 +143,6 @@
       "user_key": {
         "type": "keyword"
       },
-      "BGTD": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "ignore_above": 256,
-            "type": "keyword"
-          }
-        }
-      },
       "outsystems": {
         "properties": {
           "location_name": {
@@ -167,15 +152,6 @@
             "type": "keyword"
           },
           "environment_name": {
-            "type": "keyword"
-          }
-        }
-      },
-      "BGCK": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "ignore_above": 256,
             "type": "keyword"
           }
         }
@@ -243,47 +219,11 @@
           }
         }
       },
-      "TSAT": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "ignore_above": 256,
-            "type": "keyword"
-          }
-        }
-      },
       "user_id": {
         "type": "long"
       },
       "@version": {
         "type": "keyword"
-      },
-      "BGBC": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "ignore_above": 256,
-            "type": "keyword"
-          }
-        }
-      },
-      "BGVR": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "ignore_above": 256,
-            "type": "keyword"
-          }
-        }
-      },
-      "EC": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "ignore_above": 256,
-            "type": "keyword"
-          }
-        }
       },
       "user_agent": {
         "type": "text",

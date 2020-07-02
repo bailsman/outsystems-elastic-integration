@@ -105,8 +105,12 @@
       "@version": {
         "type": "keyword"
       },
-      "request_key": {
-        "type": "keyword"
+      "request": {
+        "properties": {
+          "key": {
+            "type": "keyword"
+          }
+        }
       }
     }
   }

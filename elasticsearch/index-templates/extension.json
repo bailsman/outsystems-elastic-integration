@@ -9,9 +9,6 @@
   },
   "mappings": {
     "properties": {
-      "extension_id": {
-        "type": "long"
-      },
       "tenant_id": {
         "type": "long"
       },
@@ -52,8 +49,15 @@
       "user_name": {
         "type": "keyword"
       },
-      "extension_name": {
-        "type": "keyword"
+      "extension": {
+        "properties": {
+          "name": {
+            "type": "keyword"
+          },
+          "id": {
+            "type": "long"
+          }
+        }
       },
       "outsystems": {
         "properties": {

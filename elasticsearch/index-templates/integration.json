@@ -52,9 +52,6 @@
           }
         }
       },
-      "application_endpoint_name": {
-        "type": "keyword"
-      },
       "duration": {
         "type": "long"
       },
@@ -63,6 +60,9 @@
       },
       "application": {
         "properties": {
+          "endpoint_name": {
+            "type": "keyword"
+          },
           "espace_id": {
             "type": "long"
           },
@@ -104,7 +104,7 @@
           "type": {
             "type": "keyword"
           },
-          "expose": {
+          "is_expose": {
             "type": "boolean"
           }
         }
