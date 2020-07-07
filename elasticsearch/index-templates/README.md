@@ -111,3 +111,29 @@ Using Kibana's `Dev Tools`:
 PUT _template/os-mon-log-web-service
 ${contents of web-service.json file goes here}
 ```
+
+### General
+
+Using `curl`:
+```
+curl -d @general.json -H 'Content-Type: application/json' -X PUT http://localhost:9200/_template/os-mon-log-general
+```
+
+Using Kibana's `Dev Tools`:
+```
+PUT _template/os-mon-log-general
+${contents of general.json file goes here}
+```
+
+### Request Events
+
+Using `curl`:
+```
+curl -d @request-event.json -H 'Content-Type: application/json' -X PUT http://localhost:9200/_template/os-mon-log-request-event
+```
+
+Using Kibana's `Dev Tools`:
+```
+PUT _template/os-mon-log-request-event
+${contents of request-event.json file goes here}
+```
