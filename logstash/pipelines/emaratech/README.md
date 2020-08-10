@@ -108,4 +108,4 @@ Int-TimerLog-20200723.csv
 
 ### Pipelines
 
-The resulting Logstash pipelines can be found [here]().
+The resulting Logstash pipelines can be found [here](https://github.com/OutSystems/outsystems-elastic-integration-private/tree/master/logstash/pipelines/emaratech).
