@@ -1,0 +1,48 @@
+#----------------------------------------------------------------------------------------------------
+# Script Information
+#----------------------------------------------------------------------------------------------------
+# Important!
+#
+# This script must be saved in "/etc/sysconfig" folder with the name "logstash". After that it must
+# have at least "600" permissions (use chmod for this setting).
+#
+#----------------------------------------------------------------------------------------------------
+
+#----------------------------------------------------------------------------------------------------
+# JDBC Settings
+#----------------------------------------------------------------------------------------------------
+# JDBC_LIBRARY: The full path for Oracle JDBC Driver.
+# JDBC_STRING: The connection string to SQL Server database.
+# JDBC_USER: The username to access the SQL Server database.
+# JDBC_PASSWORD: The password to access the SQL Server database.
+# JDBC_SCHEDULE: The schedule for import data. It is a Crontab-like schedule.
+#----------------------------------------------------------------------------------------------------
+
+JDBC_LIBRARY="/var/opt/elastic/jdbc-drivers/oracle/ojdbc8-full-12.2.0.1-jdk8/ojdbc8.jar"
+JDBC_STRING="jdbc:oracle:thin:USERNAME/PASSWORD@HOST:1521:SID"
+JDBC_USER="USERNAME"
+JDBC_PASSWORD="PASSWORD"
+JDBC_SCHEDULE="*/5 * * * *"
+
+#----------------------------------------------------------------------------------------------------
+# Data Settings
+#----------------------------------------------------------------------------------------------------
+# LAST_RUN_PATH: Path to file with last run time information for the database queries.
+# PATTERNS_DIR: The custom Grok patterns directory for Logstash.
+# DATA_CUSTOMER_NAME: Used for multiple customers on the same Elasticsearch cluster.
+# DATA_LOCATION_NAME: Used for multiple locations for the same customer.
+# DATA_ENVIRONMENT_NAME: Used for multiple environments like dev, qa, prod, etc.
+#----------------------------------------------------------------------------------------------------
+
+LAST_RUN_DIR="/etc/logstash/run"
+PATTERNS_DIR="/etc/logstash/patterns"
+DATA_CUSTOMER_NAME="SCML"
+DATA_LOCATION_NAME="Lisboa"
+DATA_ENVIRONMENT_NAME="Development"
+
+#----------------------------------------------------------------------------------------------------
+# Elasticsearch Settings
+#----------------------------------------------------------------------------------------------------
+# ES_HOSTS: The hostname(s) and port(s) of Elasticsearch cluster(s).
+#----------------------------------------------------------------------------------------------------
+ES_HOSTS="localhost:9200"
