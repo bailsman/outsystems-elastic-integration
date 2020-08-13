@@ -12,14 +12,16 @@
 # JDBC Settings
 #----------------------------------------------------------------------------------------------------
 # JDBC_LIBRARY: The full path for Oracle JDBC Driver.
-# JDBC_STRING: The connection string to SQL Server database.
+# JDBC_DRIVER_CLASS: The full class name of the JDBC driver.
+# JDBC_CONNECTION_STRING: The connection string to SQL Server database.
 # JDBC_USER: The username to access the SQL Server database.
 # JDBC_PASSWORD: The password to access the SQL Server database.
 # JDBC_SCHEDULE: The schedule for import data. It is a Crontab-like schedule.
 #----------------------------------------------------------------------------------------------------
 
 JDBC_LIBRARY="/var/opt/elastic/jdbc-drivers/oracle/ojdbc8-full-12.2.0.1-jdk8/ojdbc8.jar"
-JDBC_STRING="jdbc:oracle:thin:USERNAME/PASSWORD@HOST:1521:SID"
+JDBC_DRIVER_CLASS="Java::oracle.jdbc.OracleDriver"
+JDBC_CONNECTION_STRING="jdbc:oracle:thin:@HOST:1521:SID"
 JDBC_USER="USERNAME"
 JDBC_PASSWORD="PASSWORD"
 JDBC_SCHEDULE="*/5 * * * *"
