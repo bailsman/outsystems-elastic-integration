@@ -7,7 +7,53 @@
       <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-        <collectionProp name="Arguments.arguments"/>
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="DOMAIN" elementType="Argument">
+            <stringProp name="Argument.name">DOMAIN</stringProp>
+            <stringProp name="Argument.value">csdevops11-dev.outsystems.net</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="EMPLOYEE_ID" elementType="Argument">
+            <stringProp name="Argument.name">EMPLOYEE_ID</stringProp>
+            <stringProp name="Argument.value">17</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="FLOOR_PLAN_ID" elementType="Argument">
+            <stringProp name="Argument.name">FLOOR_PLAN_ID</stringProp>
+            <stringProp name="Argument.value">2</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DOMAIN_1" elementType="Argument">
+            <stringProp name="Argument.name">DOMAIN_1</stringProp>
+            <stringProp name="Argument.value">outsystems-dev6.outsystemsenterprise.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DOMAIN_2" elementType="Argument">
+            <stringProp name="Argument.name">DOMAIN_2</stringProp>
+            <stringProp name="Argument.value">csdevops11-dev.outsystems.net</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="EMPLOYEE_ID_1" elementType="Argument">
+            <stringProp name="Argument.name">EMPLOYEE_ID_1</stringProp>
+            <stringProp name="Argument.value">2181</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="EMPLOYEE_ID_2" elementType="Argument">
+            <stringProp name="Argument.name">EMPLOYEE_ID_2</stringProp>
+            <stringProp name="Argument.value">17</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="FLOOR_PLAN_ID_1" elementType="Argument">
+            <stringProp name="Argument.name">FLOOR_PLAN_ID_1</stringProp>
+            <stringProp name="Argument.value">7</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="FLOOR_PLAN_ID_2" elementType="Argument">
+            <stringProp name="Argument.name">FLOOR_PLAN_ID_2</stringProp>
+            <stringProp name="Argument.value">2</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
       </elementProp>
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
@@ -71,7 +117,7 @@ WDS.sampleResult.sampleStart()
 // Perform the Sampler task
 
 // Go to login page
-WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Directory/&apos;)
+WDS.browser.get(&apos;https://${DOMAIN}/Directory/&apos;)
 
 // Click the login link for Patricia P. Wesley
 WDS.browser.findElement(org.openqa.selenium.By.id(&apos;wt6_wtMainContent_wt14_wtListDirectoryManager_ctl00_wt11&apos;)).click()
@@ -82,13 +128,13 @@ if(WDS.browser.getTitle() != &apos;Directory - Employees&apos;) {
     WDS.sampleResult.setResponseMessage(&apos;Unsuccessful login&apos;)
 } else {
 	// Generate some accesses
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Directory/Employee_Edit.aspx?EmployeeId=2181&amp;(Not.Licensed.For.Production)=&apos;)
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Directory/OrgChart.aspx?(Not.Licensed.For.Production)=&apos;)
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Directory/Organizations_List.aspx?(Not.Licensed.For.Production)=&apos;)
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Directory/OfficeLocation_List.aspx?(Not.Licensed.For.Production)=&apos;)
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Directory/JobTitle_List.aspx?(Not.Licensed.For.Production)=&apos;)
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Directory/FloorPlanEdit_Popup.aspx?PlanId=7&amp;(Not.Licensed.For.Production)=&apos;)
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Directory/Employee_List.aspx?(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Directory/Employee_Edit.aspx?EmployeeId=${EMPLOYEE_ID}&amp;(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Directory/OrgChart.aspx?(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Directory/Organizations_List.aspx?(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Directory/OfficeLocation_List.aspx?(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Directory/JobTitle_List.aspx?(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Directory/FloorPlanEdit_Popup.aspx?PlanId=${FLOOR_PLAN_ID}&amp;(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Directory/Employee_List.aspx?(Not.Licensed.For.Production)=&apos;)
 	
 	// Click the logout link
 	WDS.browser.findElement(org.openqa.selenium.By.id(&apos;wt97_wtHeader_wt346_wt12_wtLogoutLink&apos;)).click()
@@ -203,7 +249,7 @@ WDS.sampleResult.sampleStart()
 // Perform the Sampler task
 
 // Go to login page
-WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Sales/&apos;)
+WDS.browser.get(&apos;https://${DOMAIN}/Sales/&apos;)
 
 // Click the login link for Theodore S. Schaal
 WDS.browser.findElement(org.openqa.selenium.By.id(&apos;OutSystemsUIWeb_wt13_block_wtLogin_wt8_wtListRecordsSalesManagers_ctl00_wt29&apos;)).click()
@@ -214,13 +260,13 @@ if(WDS.browser.getTitle() != &apos;Sales - Dashboard&apos;) {
     WDS.sampleResult.setResponseMessage(&apos;Unsuccessful login&apos;)
 } else {
 	// Generate some accesses
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Sales/Contact_List.aspx?(Not.Licensed.For.Production)=&apos;)
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Sales/Company_List.aspx?(Not.Licensed.For.Production)=&apos;)
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Sales/Opportunity_List.aspx?(Not.Licensed.For.Production)=&apos;)
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Sales/Company_FullHistory.aspx?(Not.Licensed.For.Production)=&apos;)
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Sales/AccountManager_SetupQuotas.aspx?(Not.Licensed.For.Production)=&apos;)
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Sales/Opportunities_ListClosed.aspx?(Not.Licensed.For.Production)=&apos;)
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Sales/Dashboard.aspx?(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Sales/Contact_List.aspx?(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Sales/Company_List.aspx?(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Sales/Opportunity_List.aspx?(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Sales/Company_FullHistory.aspx?(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Sales/AccountManager_SetupQuotas.aspx?(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Sales/Opportunities_ListClosed.aspx?(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Sales/Dashboard.aspx?(Not.Licensed.For.Production)=&apos;)
 	
 	// Click the logout link
 	WDS.browser.findElement(org.openqa.selenium.By.id(&apos;wt20_OutSystemsUIWeb_wt9_block_wtHeader_wtRight_wt5_OutSystemsUIWeb_wt3_block_wtContent_wt4&apos;)).click()
@@ -335,7 +381,7 @@ WDS.sampleResult.sampleStart()
 // Perform the Sampler task
 
 // Go to login page
-WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Cases/&apos;)
+WDS.browser.get(&apos;https://${DOMAIN}/Cases/&apos;)
 
 // Click the login link for Patricia P. Wesley
 WDS.browser.findElement(org.openqa.selenium.By.id(&apos;OutSystemsUIWeb_wt5_block_wtLogin_OutSystemsUIWeb_wt10_block_wtContent_wt31_wtListRecordsSalesManagers_ctl00_wt18&apos;)).click()
@@ -354,10 +400,10 @@ if(WDS.browser.getTitle() != &apos;Cases - Dashboard&apos;) {
 	WDS.browser.findElement(org.openqa.selenium.By.id(&apos;wt22_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_OutSystemsUIWeb_wt13_block_wtContent_wt36&apos;)).click()
 
 	// Do stuff with newly created case
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Cases/Case_List.aspx?StatusId=4&amp;(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Cases/Case_List.aspx?StatusId=4&amp;(Not.Licensed.For.Production)=&apos;)
 	WDS.browser.findElement(org.openqa.selenium.By.linkText(&apos;Some Subject&apos;)).click()
 	WDS.browser.findElement(org.openqa.selenium.By.id(&apos;wt52_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_OutSystemsUIWeb_wt62_block_wtContent_wt15&apos;)).click()
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Cases/Case_List.aspx?StatusId=1&amp;(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Cases/Case_List.aspx?StatusId=1&amp;(Not.Licensed.For.Production)=&apos;)
 	WDS.browser.findElement(org.openqa.selenium.By.linkText(&apos;Some Subject&apos;)).click()
 	WDS.browser.findElement(org.openqa.selenium.By.id(&apos;wt31_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wtPickButton&apos;)).click()
 	WDS.browser.findElement(org.openqa.selenium.By.id(&apos;wt31_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wt90_OutSystemsUIWeb_wt14_block_wtContent_wtinputNote&apos;)).sendKeys([&apos;Some Comment&apos;])
@@ -373,11 +419,11 @@ if(WDS.browser.getTitle() != &apos;Cases - Dashboard&apos;) {
 	WDS.browser.findElement(org.openqa.selenium.By.id(&apos;wt31_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wt90_OutSystemsUIWeb_wt14_block_wtContent_wtCloseCaseButton&apos;)).click()
 
 	// Click some more links
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Cases/Case_List.aspx?StatusId=2&amp;(Not.Licensed.For.Production)=&apos;)
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Cases/FAQ_List.aspx?(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Cases/Case_List.aspx?StatusId=2&amp;(Not.Licensed.For.Production)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Cases/FAQ_List.aspx?(Not.Licensed.For.Production)=&apos;)
 	
 	// Click the logout link
-	WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/Cases/Dashboard.aspx?(Not.Licensed.For.Production)=)=&apos;)
+	WDS.browser.get(&apos;https://${DOMAIN}/Cases/Dashboard.aspx?(Not.Licensed.For.Production)=)=&apos;)
 	WDS.browser.findElement(org.openqa.selenium.By.id(&apos;wt8_OutSystemsUIWeb_wt5_block_wtHeader_wtRight_wt22_OutSystemsUIWeb_wt16_block_wtContent_wt14&apos;)).click()
 }
 
@@ -490,7 +536,7 @@ WDS.sampleResult.sampleStart()
 // Perform the Sampler task
 
 // Go to home page
-WDS.browser.get(&apos;https://outsystems-dev6.outsystemsenterprise.com/PartyUp_WS/&apos;)
+WDS.browser.get(&apos;https://${DOMAIN}/PartyUp_WS/&apos;)
 
 var wait = new org.openqa.selenium.support.ui.WebDriverWait(WDS.browser, 5000)
 wait.until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated(org.openqa.selenium.By.className(&apos;fa-sign-in&apos;)))
