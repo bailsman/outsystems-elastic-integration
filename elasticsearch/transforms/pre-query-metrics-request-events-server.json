@@ -1,7 +1,7 @@
 {
-  "description": "Trasnform used to collect pre-query metrics over WebScreenServerExecuted request events",
+  "description": "Transform used to collect pre-query metrics over WebScreenServerExecuted request events",
   "source": {
-    "index": "monsys-dev-outsystems-request-events*",
+    "index": "os-mon-log-request-event*",
     "query": {
       "bool": {
         "filter": [
@@ -15,7 +15,7 @@
     }
   },
   "dest": {
-    "index": "monsys-productivity-trans-pre-query-metrics-request-events-server"
+    "index": "os-mon-log-trans-pre-query-metrics-request-events-server"
   },
   "frequency": "5m",
   "sync": {

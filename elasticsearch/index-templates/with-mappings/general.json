@@ -1,0 +1,139 @@
+{
+  "index_patterns": "os-mon-log-general*",
+  "version": 1,
+  "settings": {
+    "index.refresh_interval": "15s",
+    "index.number_of_shards": "1",
+    "index.lifecycle.name": "os-mon-log-ilm-policy",
+    "index.lifecycle.rollover_alias": "os-mon-log-general"
+  },
+  "mappings": {
+    "properties": {
+      "tenant_id": {
+        "type": "long"
+      },
+      "request": {
+        "properties": {
+          "key": {
+            "type": "keyword"
+          }
+        }
+      },
+      "import": {
+        "properties": {
+          "latency": {
+            "type": "long"
+          }
+        }
+      },
+      "error_id": {
+        "type": "keyword"
+      },
+      "log": {
+        "properties": {
+          "data_source": {
+            "type": "keyword"
+          },
+          "instant": {
+            "type": "date"
+          }
+        }
+      },
+      "session": {
+        "properties": {
+          "id": {
+            "type": "keyword"
+          }
+        }
+      },
+      "user_name": {
+        "type": "keyword"
+      },
+      "message": {
+        "properties": {
+          "duration": {
+            "type": "long"
+          },
+          "duration_custom": {
+            "type": "long"
+          },
+          "text": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "ignore_above": 256,
+                "type": "keyword"
+              }
+            }
+          },
+          "type": {
+            "type": "keyword"
+          },
+          "object": {
+            "type": "keyword"
+          }
+        }
+      },
+      "outsystems": {
+        "properties": {
+          "location_name": {
+            "type": "keyword"
+          },
+          "customer_name": {
+            "type": "keyword"
+          },
+          "environment_name": {
+            "type": "keyword"
+          }
+        }
+      },
+      "tags": {
+        "type": "keyword"
+      },
+      "@timestamp": {
+        "type": "date"
+      },
+      "application": {
+        "properties": {
+          "espace_id": {
+            "type": "long"
+          },
+          "espace_name": {
+            "type": "keyword"
+          },
+          "action_name": {
+            "type": "keyword"
+          },
+          "name": {
+            "type": "keyword"
+          },
+          "entrypoint_name": {
+            "type": "keyword"
+          },
+          "module_name": {
+            "type": "keyword"
+          },
+          "key": {
+            "type": "keyword"
+          }
+        }
+      },
+      "ecs": {
+        "properties": {
+          "version": {
+            "type": "keyword"
+          }
+        }
+      },
+      "user_id": {
+        "type": "long"
+      },
+      "@version": {
+        "type": "keyword"
+      },
+      "client_ip": {
+        "type": "keyword"
+      }
+    }
+  }
+}
