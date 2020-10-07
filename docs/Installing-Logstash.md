@@ -1,0 +1,93 @@
+# Installing Logstash
+
+## Ensuring Linux is up to date
+
+First of all, you should [make sure Linux is up to date](Ensuring-Linux-is-up-to-date.md).
+
+## Downloading Installation Files
+The next step is [downloading installation files](Downloading-installation-files.md).
+
+## Installing Logstash
+Jump into the chosen installation folder:
+
+`cd /var/opt/elastic/install`  
+
+Execute the installation file.
+
+Ubuntu/Debian:
+
+`sudo dpkg -i logstash-X.X.X.deb`
+
+Red Hat/CentOS:
+
+`sudo rpm -i logstash-X.X.X.rpm`  
+
+## Setting up the service for automatic start
+
+Now the information about services must be **reloaded** and the new service must be **enabled**.
+
+`sudo /bin/systemctl daemon-reload`  
+
+`sudo /bin/systemctl enable logstash.service`  
+
+## Starting the service
+
+After the installation is done, the service must be started.  
+
+Ubuntu/Debian:
+
+`sudo service logstash start`  
+
+Red Hat/CentOS:
+
+`sudo systemctl start logstash`  
+
+## Checking the service
+
+During troubleshooting, it can be necessary to check the status of the service.
+
+Ubuntu/Debian:
+
+`sudo service logstash status`
+
+Red Hat/CentOS:
+
+`sudo systemctl status logstash`
+
+Using CURL:
+
+`sudo curl -XGET "localhost:9600"`  
+
+## Stopping the service
+
+In case of maintenance, it can be necessary to stop the service.
+
+Ubuntu/Debian:
+
+`sudo service logstash stop`
+
+Red Hat/CentOS:
+
+`sudo systemctl stop logstash`  
+
+## Installing Logstash Plugins
+
+There are 4 kinds of Logstash plugins:
+* Input Plugins
+* Filter Plugins
+* Output Plugins
+* Codec Plugins
+
+Installed Logstash plugins should be up to date before installing new ones.
+
+`/usr/share/logstash/bin/logstash-plugin update`  
+
+It is mandatory to install Filter-Range plugin:
+
+`/usr/share/logstash/bin/logstash-plugin install logstash-filter-range`  
+
+In some cases, when Elasticsearch is in AWS environments, output-amazon_es plugin must also be installed:
+
+`/usr/share/logstash/bin/logstash-plugin install logstash-output-amazon_es`  
+
+Everything you need to know about Logstash Plugins can be found in [Logstash Official Page](https://www.elastic.co/guide/en/logstash/current/index.html).

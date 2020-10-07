@@ -1,0 +1,273 @@
+{
+  "description": "Transform used to collect pre-query metrics over WebScreenServerExecuted request events",
+  "source": {
+    "index": "os-mon-log-request-event*",
+    "query": {
+      "bool": {
+        "filter": [
+          {
+            "term": {
+              "request.event_name.keyword": "WebScreenServerExecuted"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "dest": {
+    "index": "os-mon-log-trans-pre-query-metrics-request-events-server"
+  },
+  "frequency": "5m",
+  "sync": {
+    "time": {
+      "field": "@timestamp"
+    }
+  },
+  "pivot": {
+    "group_by": {
+      "app_name": {
+        "terms": {
+          "field": "application.name.keyword"
+        }
+      },
+      "app_key": {
+        "terms": {
+          "field": "application.key.keyword"
+        }
+      },
+      "@timestamp": {
+        "date_histogram": {
+          "field": "@timestamp",
+          "calendar_interval": "minute"
+        }
+      }
+    },
+    "aggregations": {
+      "total.count": {
+        "value_count": {
+          "field": "@timestamp"
+        }
+      },
+      "server.good.count": {
+        "filter": {
+          "range": {
+            "request.server_duration": {
+              "lte": "1500"
+            }
+          }
+        }
+      },
+      "server.fair.count": {
+        "filter": {
+          "range": {
+            "request.server_duration": {
+              "gt": "1500",
+              "lte": "2000"
+            }
+          }
+        }
+      },
+      "server.bad.count": {
+        "filter": {
+          "range": {
+            "request.server_duration": {
+              "gt": "2000"
+            }
+          }
+        }
+      },
+      "server.total.count": {
+        "bucket_script": {
+          "buckets_path": {
+            "g": "server.good.count._count",
+            "f": "server.fair.count._count",
+            "b": "server.bad.count._count"
+          },
+          "script": "params.g + params.f + params.b"
+        }
+      },
+      "server.total.time": {
+        "sum": {
+          "field": "request.server_duration"
+        }
+      },
+      "server.good.percentage": {
+        "bucket_script": {
+          "buckets_path": {
+            "v": "server.good.count._count",
+            "t": "server.total.count.value"
+          },
+          "script": "params.t == 0 ? 0 : (params.v / params.t) * 100"
+        }
+      },
+      "server.fair.percentage": {
+        "bucket_script": {
+          "buckets_path": {
+            "v": "server.fair.count._count",
+            "t": "server.total.count.value"
+          },
+          "script": "params.t == 0 ? 0 : (params.v / params.t) * 100"
+        }
+      },
+      "server.bad.percentage": {
+        "bucket_script": {
+          "buckets_path": {
+            "v": "server.bad.count._count",
+            "t": "server.total.count.value"
+          },
+          "script": "params.t == 0 ? 0 : (params.v / params.t) * 100"
+        }
+      },
+      "query.good.count": {
+        "filter": {
+          "range": {
+            "query.total_time": {
+              "lte": "200"
+            }
+          }
+        }
+      },
+      "query.bad.count": {
+        "filter": {
+          "range": {
+            "query.total_time": {
+              "gt": "200"
+            }
+          }
+        }
+      },
+      "query.total.count": {
+        "bucket_script": {
+          "buckets_path": {
+            "g": "query.good.count._count",
+            "b": "query.bad.count._count"
+          },
+          "script": "params.g + params.b"
+        }
+      },
+      "query.total.time": {
+        "sum": {
+          "field": "query.total_time"
+        }
+      },
+      "query.good.percentage": {
+        "bucket_script": {
+          "buckets_path": {
+            "v": "query.good.count._count",
+            "t": "query.total.count.value"
+          },
+          "script": "params.t == 0 ? 0 : (params.v / params.t) * 100"
+        }
+      },
+      "query.bad.percentage": {
+        "bucket_script": {
+          "buckets_path": {
+            "v": "query.bad.count._count",
+            "t": "query.total.count.value"
+          },
+          "script": "params.t == 0 ? 0 : (params.v / params.t) * 100"
+        }
+      },
+      "integration.good.count": {
+        "filter": {
+          "range": {
+            "integration.total_time": {
+              "lte": "200"
+            }
+          }
+        }
+      },
+      "integration.bad.count": {
+        "filter": {
+          "range": {
+            "integration.total_time": {
+              "gt": "200"
+            }
+          }
+        }
+      },
+      "integration.total.count": {
+        "bucket_script": {
+          "buckets_path": {
+            "g": "integration.good.count._count",
+            "b": "integration.bad.count._count"
+          },
+          "script": "params.g + params.b"
+        }
+      },
+      "integration.total.time": {
+        "sum": {
+          "field": "integration.total_time"
+        }
+      },
+      "integration.good.percentage": {
+        "bucket_script": {
+          "buckets_path": {
+            "v": "integration.good.count._count",
+            "t": "integration.total.count.value"
+          },
+          "script": "params.t == 0 ? 0 : (params.v / params.t) * 100"
+        }
+      },
+      "integration.bad.percentage": {
+        "bucket_script": {
+          "buckets_path": {
+            "v": "integration.bad.count._count",
+            "t": "integration.total.count.value"
+          },
+          "script": "params.t == 0 ? 0 : (params.v / params.t) * 100"
+        }
+      },
+      "extension.good.count": {
+        "filter": {
+          "range": {
+            "extension.total_time": {
+              "lte": "200"
+            }
+          }
+        }
+      },
+      "extension.bad.count": {
+        "filter": {
+          "range": {
+            "extension.total_time": {
+              "gt": "200"
+            }
+          }
+        }
+      },
+      "extension.total.count": {
+        "bucket_script": {
+          "buckets_path": {
+            "g": "extension.good.count._count",
+            "b": "extension.bad.count._count"
+          },
+          "script": "params.g + params.b"
+        }
+      },
+      "extension.total.time": {
+        "sum": {
+          "field": "extension.total_time"
+        }
+      },
+      "extension.good.percentage": {
+        "bucket_script": {
+          "buckets_path": {
+            "v": "extension.good.count._count",
+            "t": "extension.total.count.value"
+          },
+          "script": "params.t == 0 ? 0 : (params.v / params.t) * 100"
+        }
+      },
+      "extension.bad.percentage": {
+        "bucket_script": {
+          "buckets_path": {
+            "v": "extension.bad.count._count",
+            "t": "extension.total.count.value"
+          },
+          "script": "params.t == 0 ? 0 : (params.v / params.t) * 100"
+        }
+      }
+    }
+  }
+}

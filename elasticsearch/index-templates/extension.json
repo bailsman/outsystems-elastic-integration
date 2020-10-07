@@ -1,0 +1,10 @@
+{
+  "index_patterns": "os-mon-log-extension*",
+  "version": 1,
+  "settings": {
+    "index.refresh_interval": "15s",
+    "index.number_of_shards": "1",
+    "index.lifecycle.name": "os-mon-log-ilm-policy",
+    "index.lifecycle.rollover_alias": "os-mon-log-extension"
+  }
+}
