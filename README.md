@@ -85,7 +85,7 @@ A deeper view of Screen performance:
 An example dashboard on how to build a bird's-eye view of SLOs track-and-trend, for requests and the most important low-code objects (queries, integrations and extensions):
 ![Performance SLOs](docs/Performance-SLOs.png "Performance SLOs")
 
-## How to
+## How to use the contents of this repository
 
 If you have little to no experience with the Elastic stack, you can refer to:
 - [How to set up the necessary Elastic stack](docs/Setup-ELK.md).
