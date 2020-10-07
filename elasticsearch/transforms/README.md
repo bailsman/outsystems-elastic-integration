@@ -32,6 +32,10 @@ PUT _transform/pre-query-metrics-request-events-server
 ${contents of pre-query-metrics-request-events-server.json file goes here}
 ```
 
+### Start Transforms
+
+Go to `Stack Management` > `Transforms` > `Actions` and press `Start`.
+
 ### Relevant Documentation
 
 * [Elasticsearch Reference: Transforming Data](https://www.elastic.co/guide/en/elasticsearch/reference/current/transforms.html)
