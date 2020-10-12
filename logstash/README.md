@@ -12,7 +12,7 @@ This is possible, for now, using one of two ways:
 
 ## Configure Logstash
 
-First and foremost, you need to copy the [logstash-config.txt](config/logstash-config.txt) file to folder `/etc/sysconfig/logstash`, review very carefully all the environment variables in that file, and make the necessary adjustments if needed.
+First and foremost, you need to rename the file [logstash-config.txt](config/logstash-config.txt) to `/etc/sysconfig/logstash`, review very carefully all the environment variables in that file, and make the necessary adjustments if needed.
 
 ## Run one pipeline at a time
 
