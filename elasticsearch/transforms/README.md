@@ -10,26 +10,57 @@ Following next, are 2 examples of how to do so, one using `curl`, and the other 
 
 Using `curl`:
 ```
-curl -d @pre-query-metrics-request-events-server.json -H 'Content-Type: application/json' -X POST http://localhost:9200/_transform/_preview
+curl -d @request-breakdown.json -H 'Content-Type: application/json' -X POST http://localhost:9200/_transform/_preview
 ```
 
 Using Kibana's `Dev Tools`:
 ```
 POST _transform/_preview
-${contents of pre-query-metrics-request-events-server.json file goes here}
+${contents of request-breakdown.json file goes here}
 ```
 
 ### Create Transforms
 
 Using `curl`:
 ```
-curl -d @pre-query-metrics-request-events-server.json -H 'Content-Type: application/json' -X PUT http://localhost:9200/_transform/pre-query-metrics-request-events-server
+curl -d @request-breakdown.json -H 'Content-Type: application/json' -X PUT http://localhost:9200/_transform/request-breakdown
 ```
 
 Using Kibana's `Dev Tools`:
 ```
-PUT _transform/pre-query-metrics-request-events-server
-${contents of pre-query-metrics-request-events-server.json file goes here}
+PUT _transform/request-breakdown
+${contents of request-breakdown.json file goes here}
+```
+
+### Index Template
+
+Apply the index template for the destination index.
+
+Using `curl`:
+```
+curl -d @../index-templates/with-mappings/request-breakdown.json -H 'Content-Type: application/json' -X PUT http://localhost:9200/_template/os-mon-log-request-breakdown
+```
+
+Using Kibana's `Dev Tools`:
+```
+PUT _template/os-mon-log-request-breakdown
+${contents of ../index-templates/with-mappings/request-breakdown.json file goes here}
+```
+
+### Index Bootstrap
+
+Bootstrap the Transform destination index.
+
+Using Kibana's `Dev Tools`:
+```
+PUT os-mon-log-request-breakdown-000001
+{
+  "aliases": {
+    "os-mon-log-request-breakdown": {
+      "is_write_index": true
+    }
+  }
+}
 ```
 
 ### Start Transforms
