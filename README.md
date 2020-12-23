@@ -55,36 +55,6 @@ Here are some examples of OutSystems metrics that can be monitored using these a
 
 > As stated, these are just examples of some metrics that can be monitored, based on the platform data.
 
-## Dashboards
-
-#### Level 1 - Performance / Latency / Errors
-A high level perspective of performance, latency and errors:
-![Level 1 - Performance / Latency / Errors](docs/Level1-Performance-Latency-Errors.png "Level 1 - Performance / Latency / Errors")
-
-#### Level 2 - Performance / Latency
-An overview of performance and latency for requests and the most important low-code objects (queries, integrations and extensions):
-![Level 2 - Performance / Latency](docs/Level2-Performance-Latency.png "Level 2 - Performance / Latency")
-
-#### Level 3 - Errors
-A deeper view of error patterns:
-![Level 3 - Errors](docs/Level3-Errors.png "Level 3 - Errors")
-
-#### Level 3 - Queries
-A deeper view of Query performance:
-![Level 3 - Queries](docs/Level3-Queries.png "Level 3 - Queries")
-
-#### Level 3 - Requests
-A breakdown of "Good" vs "Fair" vs "Bad" requests and of where is the time spent for each request:
-![Level 3 - Requests](docs/Level3-Requests.png "Level 3 - Requests")
-
-#### Level 3 - Screens
-A deeper view of Screen performance:
-![Level 3 - Screens](docs/Level3-Screens.png "Level 3 - Screens")
-
-#### Performance SLOs
-An example dashboard on how to build a bird's-eye view of SLOs track-and-trend, for requests and the most important low-code objects (queries, integrations and extensions):
-![Performance SLOs](docs/Performance-SLOs.png "Performance SLOs")
-
 ## How to use the contents of this repository
 
 If you have little to no experience with the Elastic stack, you can refer to:
@@ -94,9 +64,6 @@ If you are good with setting up the Elastic stack, and you want to know how to u
 - [How to use the Elasticsearch accelerators](elasticsearch/README.md).
 - [How to use the Logstash accelerators](logstash/README.md).
 - [How to use the Kibana accelerators](kibana/README.md).
-
-If you want to go a bit further and have a look at an example of how to set up a dashboard in Kibana to track performance SLOs, you can refer to:
-- [How to set up the example "Performance SLOs" dashboard](docs/Performance-SLOs.md).
 
 If you want to explore deeper what can be taken out of OutSystems monitoring data, you can refer to:
 - [Understand OutSystems monitoring data](docs/Monitoring-Data.md).
