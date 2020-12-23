@@ -14,67 +14,58 @@
           "error_count": {
             "type": "long"
           },
-          "total_extension_time": {
-            "type": "long"
-          },
-          "client_time": {
-            "type": "long"
-          },
           "time_to_last_byte": {
-            "type": "long"
-          },
-          "total_extension_executions": {
-            "type": "long"
-          },
-          "network_time": {
-            "type": "long"
-          },
-          "total_query_executions": {
             "type": "long"
           },
           "time_to_first_byte": {
             "type": "long"
           },
-          "total_consumed_integration_executions": {
-            "type": "long"
+          "extension": {
+            "properties": {
+              "total_time": {
+                "type": "long"
+              },
+              "total_executions": {
+                "type": "long"
+              },
+              "total_time_class": {
+                "type": "keyword"
+              }
+            }
+          },
+          "query": {
+            "properties": {
+              "total_time": {
+                "type": "long"
+              },
+              "total_executions": {
+                "type": "long"
+              },
+              "total_time_class": {
+                "type": "keyword"
+              }
+            }
+          },
+          "integration": {
+            "properties": {
+              "total_time": {
+                "type": "long"
+              },
+              "total_executions": {
+                "type": "long"
+              },
+              "total_time_class": {
+                "type": "keyword"
+              }
+            }
           },
           "server_duration": {
             "type": "long"
-          },
-          "total_consumed_integration_time_class": {
-            "type": "keyword"
           },
           "total_duration": {
             "type": "long"
           },
           "load_time": {
-            "type": "long"
-          },
-          "total_query_time": {
-            "type": "long"
-          },
-          "total_query_time_class": {
-            "type": "keyword"
-          },
-          "estimated_server_time": {
-            "type": "long"
-          },
-          "event_name": {
-            "type": "keyword"
-          },
-          "total_extension_time_class": {
-            "type": "keyword"
-          },
-          "event_details": {
-            "type": "text",
-            "fields": {
-              "keyword": {
-                "ignore_above": 256,
-                "type": "keyword"
-              }
-            }
-          },
-          "total_consumed_integration_time": {
             "type": "long"
           },
           "total_duration_class": {
@@ -83,10 +74,16 @@
           "key": {
             "type": "keyword"
           },
-          "group": {
+          "event": {
             "properties": {
-              "duration": {
-                "type": "long"
+              "details": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "ignore_above": 256,
+                    "type": "keyword"
+                  }
+                }
               },
               "name": {
                 "type": "keyword"
