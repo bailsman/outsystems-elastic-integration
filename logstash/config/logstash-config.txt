@@ -9,6 +9,21 @@
 #----------------------------------------------------------------------------------------------------
 
 #----------------------------------------------------------------------------------------------------
+# MonitorProbe Settings
+#----------------------------------------------------------------------------------------------------
+# MP_BASE_URL: MonitorProbe base URL.
+# MP_USER: The username to access the MonitorProbe API.
+# MP_PASSWORD: The password to access the MonitorProbe API.
+# MP_SCHEDULE: Schedule of when to periodically poll from the MonitorProbe API.
+               See official documentation here: https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http_poller.html#plugins-inputs-http_poller-schedule
+#----------------------------------------------------------------------------------------------------
+
+MP_BASE_URL="https://<OUTSYSTEMS_ENVIRONMENT_DOMAIN>/MonitorProbe/rest/PlatformLogsV2"
+MP_USER="<USERNAME>"
+MP_PASSWORD="<PASSWORD>"
+MP_SCHEDULE="5m"
+
+#----------------------------------------------------------------------------------------------------
 # JDBC Settings
 #----------------------------------------------------------------------------------------------------
 # JDBC_LIBRARY: The full path for Oracle JDBC Driver.
@@ -16,14 +31,14 @@
 # JDBC_CONNECTION_STRING: The connection string to SQL Server database.
 # JDBC_USER: The username to access the SQL Server database.
 # JDBC_PASSWORD: The password to access the SQL Server database.
-# JDBC_SCHEDULE: The schedule for import data. It is a Crontab-like schedule.
+# JDBC_SCHEDULE: The schedule to poll the database for data. It is a Crontab-like expression.
 #----------------------------------------------------------------------------------------------------
 
-JDBC_LIBRARY="/var/opt/elastic/jdbc-drivers/oracle/ojdbc8-full-12.2.0.1-jdk8/ojdbc8.jar"
-JDBC_DRIVER_CLASS="Java::oracle.jdbc.OracleDriver"
-JDBC_CONNECTION_STRING="jdbc:oracle:thin:@HOST:1521:SID"
-JDBC_USER="USERNAME"
-JDBC_PASSWORD="PASSWORD"
+JDBC_LIBRARY="/jdbc-drivers/mssql/sqljdbc_8.2/mssql-jdbc-8.2.2.jre8.jar"
+JDBC_DRIVER_CLASS="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+JDBC_CONNECTION_STRING="jdbc:sqlserver://<SERVER>:1433;database=<LOG_DATABASE>;loginTimeout=30;"
+JDBC_USER="<USERNAME>"
+JDBC_PASSWORD="<PASSWORD>"
 JDBC_SCHEDULE="*/5 * * * *"
 
 #----------------------------------------------------------------------------------------------------
@@ -38,13 +53,14 @@ JDBC_SCHEDULE="*/5 * * * *"
 
 LAST_RUN_DIR="/etc/logstash/run"
 PATTERNS_DIR="/etc/logstash/patterns"
-DATA_CUSTOMER_NAME="SCML"
-DATA_LOCATION_NAME="Lisboa"
-DATA_ENVIRONMENT_NAME="Development"
+DATA_CUSTOMER_NAME="<CUSTOMER_NAME>"
+DATA_LOCATION_NAME="<LOCATION>"
+DATA_ENVIRONMENT_NAME="<ENV>"
 
 #----------------------------------------------------------------------------------------------------
 # Elasticsearch Settings
 #----------------------------------------------------------------------------------------------------
 # ES_HOSTS: The hostname(s) and port(s) of Elasticsearch cluster(s).
 #----------------------------------------------------------------------------------------------------
+
 ES_HOSTS="localhost:9200"

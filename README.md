@@ -61,9 +61,9 @@ If you have little to no experience with the Elastic stack, you can refer to:
 - [How to set up the necessary Elastic stack](docs/Setup-ELK.md).
 
 If you are good with setting up the Elastic stack, and you want to know how to use these accelerators, check the following documents (with the following order):
-- [How to use the Elasticsearch accelerators](elasticsearch/README.md).
-- [How to use the Logstash accelerators](logstash/README.md).
-- [How to use the Kibana accelerators](kibana/README.md).
+1. [How to use the Elasticsearch accelerators](elasticsearch/README.md).
+2. [How to use the Logstash accelerators](logstash/README.md).
+3. [How to use the Kibana accelerators](kibana/README.md).
 
 If you want to explore deeper what can be taken out of OutSystems monitoring data, you can refer to:
 - [Understand OutSystems monitoring data](docs/Monitoring-Data.md).
