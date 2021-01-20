@@ -134,7 +134,7 @@
         "bucket_script": {
           "buckets_path": {
             "c": "request.total_time.value",
-            "l": "request.load_time.value",
+            "l": "request.client.load_time.value",
             "s": "request.server.time.value"
           },
           "script": "params.c == 0 ? 0 : params.c - params.l - params.s"
