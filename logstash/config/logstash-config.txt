@@ -60,7 +60,11 @@ DATA_ENVIRONMENT_NAME="<ENV>"
 #----------------------------------------------------------------------------------------------------
 # Elasticsearch Settings
 #----------------------------------------------------------------------------------------------------
-# ES_HOSTS: The hostname(s) and port(s) of Elasticsearch cluster(s).
+# ES_HOST: The hostname and port of Elasticsearch cluster.
+# ES_USER: The username to access the Elasticsearch cluster.
+# ES_PASS: The password to access the Elasticsearch cluster.
 #----------------------------------------------------------------------------------------------------
 
-ES_HOSTS="localhost:9200"
+ES_HOST="localhost:9200"
+ES_USER="<USERNAME>"
+ES_PASS="<PASSWORD>"
