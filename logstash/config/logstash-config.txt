@@ -14,14 +14,22 @@
 # MP_BASE_URL: MonitorProbe base URL.
 # MP_USER: The username to access the MonitorProbe API.
 # MP_PASSWORD: The password to access the MonitorProbe API.
+# MP_INTERVAL: The interval of time (in minutes) to go back.
 # MP_SCHEDULE: Schedule of when to periodically poll from the MonitorProbe API.
                See official documentation here: https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http_poller.html#plugins-inputs-http_poller-schedule
+# MP_REQUEST_TIMEOUT: Timeout waiting for response in full.
+                      See official documentation here: https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http_poller.html#plugins-inputs-http_poller-request_timeout
+# MP_SOCKET_TIMEOUT: Timeout waiting for the first data chunk of the response.
+                     See official documentation here: https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http_poller.html#plugins-inputs-http_poller-socket_timeout
 #----------------------------------------------------------------------------------------------------
 
 MP_BASE_URL="https://<OUTSYSTEMS_ENVIRONMENT_DOMAIN>/MonitorProbe/rest/PlatformLogsV2"
 MP_USER="<USERNAME>"
 MP_PASSWORD="<PASSWORD>"
-MP_SCHEDULE="5m"
+MP_INTERVAL="3"
+MP_SCHEDULE="2m"
+MP_REQUEST_TIMEOUT="120"
+MP_SOCKET_TIMEOUT="60"
 
 #----------------------------------------------------------------------------------------------------
 # JDBC Settings
