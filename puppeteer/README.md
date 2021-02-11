@@ -24,7 +24,7 @@ The only pre-requisite is to have Node.js (and NPM) installed.
 
 Don't forget you'll have to clone this repository, or at least download the contents of this folder.
 
-Because this application runs as a command, open your command prompt and move into the folder with these contents.
+Because this application runs as a command, open your command prompt and move into your local folder with these contents.
 
 If you don't want to run this locally on your machine, check [here](#setup-a-linux-vm-on-azure-from-scratch) how to setup a Linux VM on Azure from scratch and run it from there.
 
@@ -42,7 +42,7 @@ node run.js --domain outsystems-dev6.outsystemsenterprise.com --iterations 2 --p
 
 Details about the options:
 * `--domain`: This options indicates the OutSystems domain where we want to use the well-known applications. If you don't specify this option, a default value will be used. Default value is `outsystems-dev6.outsystemsenterprise.com`.
-* `--iterations`: This option indicates the number of iterations that will be executed through the well-known applications. If you don't specify this option, a default value will be used. Default value is `forever`.
+* `--iterations`: This option indicates the number of iterations that will be executed through the well-known applications. If you don't specify this option, it will iterate forever.
 * `--pause`: This option indicates the number of seconds it will pause before running the next iteration. If you don't specify this option, a default value will be used. Default value is `5 seconds`.
 * `--debug`: This option indicates the level of debug information it will print to the console output. If you don't specify this option, it will print no debug information. Possible values are:
     * `--debug`: It will print what is doing and in which step it is.
@@ -162,3 +162,7 @@ If you want to setup a Linux VM on Azure from scratch and leave it there running
     ```
     az group delete --name "puppeteer"
     ```
+
+## Know more
+
+If you want to learn more about Puppeteer for possible future improvements, besides the obvious official documentation, [here](https://returnstring.com/series/puppeteer-getting-started) is a really nice "Getting Started" series.
