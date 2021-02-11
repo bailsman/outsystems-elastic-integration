@@ -1,0 +1,15 @@
+{
+  "name": "puppeteer",
+  "version": "1.0.0",
+  "description": "Traffic generator using puppeteer",
+  "main": "run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Santos",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^7.0.4",
+    "yargs": "^16.2.0"
+  }
+}

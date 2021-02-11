@@ -38,6 +38,11 @@
             <stringProp name="Argument.value">devops-dev.outsystemsdevopsexperts.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="DOMAIN_4" elementType="Argument">
+            <stringProp name="Argument.name">DOMAIN_4</stringProp>
+            <stringProp name="Argument.value">outsystems-tst20.outsystemsenterprise.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
           <elementProp name="EMPLOYEE_ID_1" elementType="Argument">
             <stringProp name="Argument.name">EMPLOYEE_ID_1</stringProp>
             <stringProp name="Argument.value">2181</stringProp>
@@ -53,6 +58,11 @@
             <stringProp name="Argument.value">5</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="EMPLOYEE_ID_4" elementType="Argument">
+            <stringProp name="Argument.name">EMPLOYEE_ID_4</stringProp>
+            <stringProp name="Argument.value">1019</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
           <elementProp name="FLOOR_PLAN_ID_1" elementType="Argument">
             <stringProp name="Argument.name">FLOOR_PLAN_ID_1</stringProp>
             <stringProp name="Argument.value">7</stringProp>
@@ -66,6 +76,11 @@
           <elementProp name="FLOOR_PLAN_ID_3" elementType="Argument">
             <stringProp name="Argument.name">FLOOR_PLAN_ID_3</stringProp>
             <stringProp name="Argument.value">2</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="FLOOR_PLAN_ID_4" elementType="Argument">
+            <stringProp name="Argument.name">FLOOR_PLAN_ID_4</stringProp>
+            <stringProp name="Argument.value">10</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -126,7 +141,7 @@
         </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
         <hashTree/>
         <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - WebDriver Sampler" enabled="true">
-          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui)
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);
 var wait = new pkg.WebDriverWait(WDS.browser, 10)
 
 // Start capturing the sampler timing
@@ -726,8 +741,13 @@ if(WDS.browser.getTitle() != &apos;Cases - Dashboard&apos;) {
 	// Do stuff with newly created case
 	WDS.browser.get(&apos;https://${DOMAIN}/Cases/Case_List.aspx?StatusId=4&amp;(Not.Licensed.For.Production)=&apos;)
 	wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&apos;wt37_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent&apos;)))
+
+	//WDS.browser.findElement(pkg.By.id(&apos;wt37_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_RichWidgets_wt25_block_wt28&apos;)).click()
+	//WDS.browser.findElement(pkg.By.id(&apos;wt37_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_RichWidgets_wt25_block_wt28&apos;)).click()
+	
 	WDS.browser.findElement(pkg.By.linkText(&apos;Some Subject&apos;)).click()
 	wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&apos;wt52_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wt63_wtTableRecords&apos;)))
+	// Save
 	WDS.browser.findElement(pkg.By.id(&apos;wt52_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_OutSystemsUIWeb_wt62_block_wtContent_wt15&apos;)).click()
 	wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&apos;wt31_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wt90_OutSystemsUIWeb_wt14_block_wtContent&apos;)))
 
@@ -817,7 +837,7 @@ if(WDS.browser.getTitle() != &apos;Login&apos;) {
         </ResultCollector>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="PartyUp Thread Group" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="PartyUp Thread Group" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
