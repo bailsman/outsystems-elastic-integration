@@ -137,17 +137,17 @@ If you want to setup a Linux VM on Azure from scratch and leave it there running
     ```
 13. Run the following command to start the application and leave it running in the background:
     ```
-    node run.js --domain outsystems-dev6.outsystemsenterprise.com --iterations 2 --pause 5 --debug > out.log 2>&1 &
+    node run.js --domain outsystems-dev6.outsystemsenterprise.com --iterations 2 --pause 5 --debug > /dev/null 2>&1 &
     ```
-    > `> out.log 2>&1` means redirect `stdout` to file `out.log` and `stderr` to `stdout`.
+    > `> /dev/null 2>&1` means redirect `stdout` to nowhere and `stderr` to `stdout`.
 14. Run the following command to look at the logs of the application running in the background:
     ```
-    tail -f out.log
+    tail -f run.log
     ```
     > To exit the tail, just hit `CTRL-C`.
 15. Run the following command to stop the application running in the background:
     ```
-    kill $(ps aux | grep '[r]un.js' | awk '{print $2}')
+    kill -9 $(ps aux | grep '[r]un.js' | awk '{print $2}')
     ```
     > Make sure to wait for a pause before you abort execution just to guarantee no information is left hanging in the well-known applications.
     
@@ -163,6 +163,28 @@ If you want to setup a Linux VM on Azure from scratch and leave it there running
     az group delete --name "puppeteer"
     ```
 
-## Know more
+## Future improvements
 
-If you want to learn more about Puppeteer for possible future improvements, besides the obvious official documentation, [here](https://returnstring.com/series/puppeteer-getting-started) is a really nice "Getting Started" series.
+To add traffic generation for a new well-known application, follow these steps:
+
+1. Create a new Javascript file by copying `cases.js`.
+2. Reference it and use it in the `run.js` file, just like the other ones are.
+3. Use the app yourself with the Chrome Dev Tools opened and decide which pages to visit, which links and buttons to click, which forms to fill and submit, and take note of the ids of all these DOM elements.
+4. Recreate those footsteps using the ids you've collected, and following what was done for the Cases application.
+    > `await page.goto('https://url');` goes to given URL.
+
+    > `let selector = 'div#idOfDiv'; await page.waitForSelector(selector);` waits for a div with the id `idOfDiv` to be present on the loaded page.
+
+    > `selector = 'a#idOfLink'; await page.click(selector);` clicks on the link with id `idOfLink`.
+
+    > `selector = 'input#idOfTextInput'; await page.type(selector, 'Some input text');` writes the text `Some input text` in the input text with id `idOfInputText`.
+
+    > `selector = 'select#idOfDropdownList'; await page.select(selector, '2');` selects the option with value `2` from a dropdown list with id `idOfDropdownList`.
+
+    > `selector = 'input#idOfButton'; await page.click(selector);` clicks on the button with id `idOfButton`.
+
+    > `selector = 'textarea#idOfTextarea'; await page.type(selector, 'Some input text');` writes the text `Some input text` in the textarea with id `idOfTextarea`.
+
+    > `linkHandlers = await page.$x("//a[contains(text(), 'Some text')]"); await linkHandlers[0].click();` searches the page for a link containing text `Some text` and clicks on it.
+
+    If you want to learn more about Puppeteer for possible future improvements, besides the obvious official documentation, [here](https://returnstring.com/series/puppeteer-getting-started) is a really nice "Getting Started" series.

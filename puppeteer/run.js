@@ -33,7 +33,7 @@ const pause = argv.pause ? argv.pause : 5;
         step++;
         runCondition = iterations === -1 ? true : step <= iterations;
     }
-})().catch(console.error);
+})().catch(logger.error);
 
 const sleep = (seconds) => {
     logger.info(`Pausing for ${seconds} seconds...`);

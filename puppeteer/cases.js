@@ -20,7 +20,7 @@ module.exports = {
             await page.goto(`https://${domain}/Cases/`);
             let selector = 'div#OutSystemsUIWeb_wt5_block_wtLogin_OutSystemsUIWeb_wt34_block_wtLogin';
             await page.waitForSelector(selector);
-            await logger.log(page, 'Cases', `${step}01`, 'At the login screen');
+            await logger.trace(page, 'Cases', `${step}01`, 'At the login screen');
 
             // login and wait for the 'Dashboard' screen to fully render
             selector = 'a#OutSystemsUIWeb_wt5_block_wtLogin_OutSystemsUIWeb_wt10_block_wtContent_wt31_wtListRecordsSalesManagers_ctl00_wt18';
@@ -28,13 +28,13 @@ module.exports = {
             await page.click(selector);
             selector = 'input#wt8_OutSystemsUIWeb_wt5_block_wtContent_wtActions_wt47';
             await page.waitForSelector(selector);
-            await logger.log(page, 'Cases', `${step}02`, 'At the dashboard screen');
+            await logger.trace(page, 'Cases', `${step}02`, 'At the dashboard screen');
 
             // create a new case
             await page.click(selector);
             selector = 'input#wt22_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_OutSystemsUIWeb_wt13_block_wtContent_wtContact_Name';
             await page.waitForSelector(selector);
-            await logger.log(page, 'Cases', `${step}03`, 'Create new case');
+            await logger.trace(page, 'Cases', `${step}03`, 'Create new case');
             await page.type(selector, 'Daniel Tonini');
             selector = 'input#wt22_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_OutSystemsUIWeb_wt13_block_wtContent_wtCase_Subject';
             await page.type(selector, 'Some Subject');
@@ -46,45 +46,45 @@ module.exports = {
             await page.click(selector);
             selector = 'div#wt52_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wt63_wtTableRecords';
             await page.waitForSelector(selector);
-            await logger.log(page,'Cases', `${step}04`, 'Created new case');
+            await logger.trace(page,'Cases', `${step}04`, 'Created new case');
 
             // go to the 'New Cases' screen and wait for it to fully render
             await page.goto(`https://${domain}/Cases/Case_List.aspx?StatusId=4&(Not.Licensed.For.Production)=`);
             selector = 'div#wt37_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent';
             await page.waitForSelector(selector);
-            await logger.log(page,'Cases', `${step}05`, 'At the new cases screen');
+            await logger.trace(page,'Cases', `${step}05`, 'At the new cases screen');
 
             // select the newly created case
             let linkHandlers = await page.$x("//a[contains(text(), 'Some Subject')]");
             await linkHandlers[0].click();
             selector = 'div#wt52_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wt63_wtTableRecords';
             await page.waitForSelector(selector);
-            await logger.log(page, 'Cases', `${step}06`, 'Selected the newly created case');
+            await logger.trace(page, 'Cases', `${step}06`, 'Selected the newly created case');
             // press the 'Save' button
             selector = 'input#wt52_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_OutSystemsUIWeb_wt62_block_wtContent_wt15';
             await page.click(selector);
             selector = 'div#wt31_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wt90_OutSystemsUIWeb_wt14_block_wtContent';
             await page.waitForSelector(selector);
-            await logger.log(page, 'Cases', `${step}07`, 'Changed status to working case');
+            await logger.trace(page, 'Cases', `${step}07`, 'Changed status to working case');
 
             // go to the 'Working Cases' screen and wait for it to fully render
             await page.goto(`https://${domain}/Cases/Case_List.aspx?StatusId=1&(Not.Licensed.For.Production)=`);
             selector = 'div#wt37_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wtCaseTable_Wrapper';
             await page.waitForSelector(selector);
-            await logger.log(page, 'Cases', `${step}08`, 'At the working cases screen');
+            await logger.trace(page, 'Cases', `${step}08`, 'At the working cases screen');
 
             // select the newly created case
             linkHandlers = await page.$x("//a[contains(text(), 'Some Subject')]");
             await linkHandlers[0].click();
             selector = 'div#wt31_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wt90_OutSystemsUIWeb_wt14_block_wtContent';
             await page.waitForSelector(selector);
-            await logger.log(page, 'Cases', `${step}09`, 'Selected the newly created case');
+            await logger.trace(page, 'Cases', `${step}09`, 'Selected the newly created case');
             // press the 'Pick this case' button
             selector = 'input#wt31_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wtPickButton';
             await page.click(selector);
             selector = 'input#wt31_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wtWaitingButton';
             await page.waitForSelector(selector);
-            await logger.log(page, 'Cases', `${step}10`, 'Picked the case');
+            await logger.trace(page, 'Cases', `${step}10`, 'Picked the case');
             // enter a comment
             selector = 'textarea#wt31_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wt90_OutSystemsUIWeb_wt14_block_wtContent_wtinputNote';
             await page.type(selector, 'Some Comment');
@@ -93,7 +93,7 @@ module.exports = {
             await page.click(selector);
             selector = 'input#wt31_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wtWaitingButton';
             await page.waitForSelector(selector);
-            await logger.log(page, 'Cases', `${step}11`, 'Added a comment');
+            await logger.trace(page, 'Cases', `${step}11`, 'Added a comment');
             // enter another comment
             selector = 'textarea#wt31_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wt90_OutSystemsUIWeb_wt14_block_wtContent_wtinputNote';
             await page.type(selector, 'Some Call');
@@ -102,17 +102,17 @@ module.exports = {
             await page.click(selector);
             selector = 'input#wt31_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wtWaitingButton';
             await page.waitForSelector(selector);
-            await logger.log(page, 'Cases', `${step}12`, 'Registered a call');
+            await logger.trace(page, 'Cases', `${step}12`, 'Registered a call');
             // press the 'Waiting for Customer' button
             await page.click(selector);
             selector = 'input#wt31_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wtWorkingButton';
             await page.waitForSelector(selector);
-            await logger.log(page, 'Cases', `${step}13`, 'Changed status to waiting');
+            await logger.trace(page, 'Cases', `${step}13`, 'Changed status to waiting');
             // press the 'Set as Working' button
             await page.click(selector);
             selector = 'input#wt31_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wt90_OutSystemsUIWeb_wt14_block_wtContent_wtCloseCaseButton';
             await page.waitForSelector(selector);
-            await logger.log(page, 'Cases', `${step}14`, 'Changed status to working');
+            await logger.trace(page, 'Cases', `${step}14`, 'Changed status to working');
             // press the 'Close Case' button
             await page.click(selector);
             // enter a comment
@@ -123,19 +123,19 @@ module.exports = {
             await page.click(selector);
             selector = 'div#wt37_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wtCaseTable_Wrapper';
             await page.waitForSelector(selector);
-            await logger.log(page, 'Cases', `${step}15`, 'Closed the case');
+            await logger.trace(page, 'Cases', `${step}15`, 'Closed the case');
 
             // go to the 'Waiting Cases' screen and wait for it to fully render
             await page.goto(`https://${domain}/Cases/Case_List.aspx?StatusId=2&(Not.Licensed.For.Production)=`);
             selector = 'div#wt37_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_wtCaseTable_Wrapper';
             await page.waitForSelector(selector);
-            await logger.log(page, 'Cases', `${step}16`, 'At the waiting cases screen');
+            await logger.trace(page, 'Cases', `${step}16`, 'At the waiting cases screen');
 
             // go to the 'FAQs' screen and wait for it to fully render
             await page.goto(`https://${domain}/Cases/FAQ_List.aspx?(Not.Licensed.For.Production)=`);
             selector = 'div#wt4_OutSystemsUIWeb_wt5_block_wtContent_wtMainContent_OutSystemsUIWeb_wt32_block_wtContent';
             await page.waitForSelector(selector);
-            await logger.log(page, 'Cases', `${step}17`, 'At the FAQ screen');
+            await logger.trace(page, 'Cases', `${step}17`, 'At the FAQ screen');
 
             // logout
             // go to the 'Dashboard' screen and wait for it to fully render
@@ -146,10 +146,10 @@ module.exports = {
             await page.click(selector);
             selector = 'div#OutSystemsUIWeb_wt5_block_wtLogin_OutSystemsUIWeb_wt34_block_wtLogin';
             await page.waitForSelector(selector);
-            await logger.log(page, 'Cases', `${step}18`, 'Logged out');
+            await logger.trace(page, 'Cases', `${step}18`, 'Logged out');
         } catch (error) {
             // catch and handle any unexpected error
-            console.error(error);
+            logger.error(error);
         } finally {
             // always close the browser no matter what to avoid memory leaks
             await browser.close();

@@ -1,36 +1,55 @@
 // the log level (debug: for text messages at every step | trace for text messages and screenshots of the screens at every step)
-let level = 'default';
+let logLevel = 'info';
+
+const path = require('path');
+const winston = require('winston');
+
+const logger = winston.createLogger({
+    level: logLevel,
+    format: winston.format.printf(info => `${info.message}`),
+    transports: [
+        new winston.transports.File({
+            filename: path.join(__dirname, 'run.log'),
+            maxsize: (1024 * 1024),
+            maxFiles: 3,
+            tailable: true,
+            zippedArchive: false
+        }),
+        new winston.transports.Console({
+            format: winston.format.simple(),
+        })
+    ]
+});
 
 module.exports = {
-    log: async function (page, app, step, msg) {
-        if (isDebug()) {
-            console.log(`[${timestamp()}] [${app}] [${step}] ${msg}`);
-        }
+    trace: async function (page, app, step, msg) {
+        logger.debug(`[${timestamp()}] [${app}] [${step}] ${msg}`);
         if (isTrace()) {
             const name = `screenshot-${app.toLowerCase()}-${step}-${msg.replaceAll(' ', '-').toLowerCase()}.png`;
             await page.screenshot({path: name});
         }
     },
+    error: function (msg) {
+        logger.error(`[${timestamp()}] ${msg}`);
+    },
     info: function (msg) {
-        console.log(`[${timestamp()}] ${msg}`);
+        logger.info(`[${timestamp()}] ${msg}`);
     },
     setDebug: function () {
-        level = 'debug';
+        logLevel = 'debug';
+        logger.level = logLevel;
     },
     setTrace: function () {
-        level = 'trace';
+        logLevel = 'trace';
+        logger.level = 'debug';
     },
     getLevel: function () {
-        return level;
+        return logLevel;
     }
 }
 
-const isDebug = () => {
-    return 'debug' === level || isTrace();
-}
-
 const isTrace = () => {
-    return 'trace' === level;
+    return 'trace' === logLevel;
 }
 
 const timestamp = () => {
