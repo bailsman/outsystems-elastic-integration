@@ -60,7 +60,7 @@ To stop the application from running, just hit `CTRL-C`.
 
 ## Setup a Linux VM on Azure from scratch
 
-> :exclamation: This application is already deployed and running in a forever loop on server `52.157.174.184`. You can connect to this server with the command `ssh devops@52.157.174.184` and password `Outsystems!123`.
+> :exclamation: This application is already deployed and running in a forever loop on server `52.157.174.184`. You can connect to this server with the command `ssh devops@52.157.174.184` and password `Outsystems!123`. If you are interested in deploying a new version of the application in this VM, you can start from step 5.
 
 If you want to setup a Linux VM on Azure from scratch and leave it there running forever, these are the steps you need to take:
 
