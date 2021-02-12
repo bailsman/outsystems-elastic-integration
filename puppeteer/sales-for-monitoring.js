@@ -78,7 +78,7 @@ module.exports = {
             await page.waitForSelector(selector);
             await logger.trace(page, 'Sales Monitoring Exercises', `${step}10`, 'Logged out');
 
-            for (let loginStep = 0; loginStep < 5; loginStep++) {
+            for (let loginStep = 0; loginStep < 10; loginStep++) {
                 // first, a small trick to make sure we select any existing text in the username input field to replace it by the new content next
                 selector = 'input#OutSystemsUIWeb_wt13_block_wtLogin_OutSystemsUIWeb_wt21_block_wtLogin_OutSystemsUIWeb_wt22_block_wtInput_wtUserNameInput';
                 await page.click(selector, { clickCount: 3 });
