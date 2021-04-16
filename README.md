@@ -14,6 +14,12 @@ These accelerators are:
     - Reduce time to insights (based on OutSystems monitoring data).
     - Improve troubleshooting capabilities.
 
+<br>
+
+:exclamation: To know how to set up and use this repository artifacts you can go directly to the this section [How to use the contents of this repository](How-to-use-the-contents-of-this-repository)
+  
+<br>
+
 ## Goal 🎯
 The major goal of these accelerators is to provide OutSystems customers with an out-of-the-box solution to:
 - Easily **observe the OutSystems monitoring data on Elastic with more advanced visualizations**, compared to the ones from the built-in tools of the OutSystems platform.
@@ -31,8 +37,10 @@ The major goal of these accelerators is to provide OutSystems customers with an 
         - Slow Extensions
 - Provide an example of how to **set up and monitor SLOs**.
 
-## Outcomes
 
+<br>
+
+## Outcomes
 Here are some examples of OutSystems metrics that can be monitored using these accelerators:
 - **Request Time Duration** (for each request):
     - Client Time (load time)
@@ -55,10 +63,11 @@ Here are some examples of OutSystems metrics that can be monitored using these a
 
 > As stated, these are just examples of some metrics that can be monitored, based on the platform data.
 
-## How to use the contents of this repository
+<br>
 
-If you have little to no experience with the Elastic stack, you can refer to:
-- [How to set up the necessary Elastic stack](docs/Setup-ELK.md).
+## How to use the contents of this repository
+If you have low to no experience with the Elastic stack, you can refer to:
+- [How to set up the necessary Elastic stack](docs/Elastic_Stack_Installation/README.md).
 
 If you are good with setting up the Elastic stack, and you want to know how to use these accelerators, check the following documents (with the following order):
 1. [How to use the Elasticsearch accelerators](elasticsearch/README.md).
@@ -70,6 +79,8 @@ If you want to explore more deeply what you can take out of the OutSystems monit
 - [Understand OutSystems monitoring data](docs/Monitoring-Data.md).
 - [How to build baseline metrics with Outsystems monitoring data](docs/Baseline-Metrics.md).
 
+<br>
+
 ## How to contribute 📝
 **OutSystems Customer Success DevOps team** maintains this repository and is deeply interested in your contribution!
 - Reach us through:
@@ -78,8 +89,12 @@ If you want to explore more deeply what you can take out of the OutSystems monit
 - Make a contribution directly here on GitHub
     - Learn [how](https://kbroman.org/github_tutorial/pages/fork.html).
 
+<br>
+
 ## License 📃
 OutSystems makes the contents of this repository available under the Apache License with no support, and following the same logic specified on this [notice](https://github.com/OutSystems/outsystems-pipeline/blob/master/NOTICE.md).
+
+<br>
 
 ## Change log
 See the change log to learn about the latest changes and improvements to this repository.

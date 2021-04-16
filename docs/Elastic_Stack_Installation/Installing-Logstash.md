@@ -80,14 +80,34 @@ There are 4 kinds of Logstash plugins:
 
 Installed Logstash plugins should be up to date before installing new ones.
 
+### Update existing plugins
+Run the following command (as root):
+**Debian based systems**
+`/etc/default/logstash/bin/logstash-plugin update`  
+
+**Red Hat based systems**
 `/usr/share/logstash/bin/logstash-plugin update`  
 
-It is mandatory to install Filter-Range plugin:
+### Installing other need plugins
+It is mandatory to install Filter-Range plugin. 
 
+To do so run the following command (as root):
+**Debian based systems**
+`/etc/default/logstash/bin/logstash-plugin install logstash-filter-range`  
+
+**Red Hat based systems**
 `/usr/share/logstash/bin/logstash-plugin install logstash-filter-range`  
 
-In some cases, when Elasticsearch is in AWS environments, output-amazon_es plugin must also be installed:
+### Other plugins that might be needed
+In some cases, like when using Elasticsearch is in AWS environments, __output-amazon_es__ plugin must also be installed:
 
+To do so run the following command (as root):
+**Debian based systems**
+`/etc/default/logstash/bin/logstash-plugin install logstash-output-amazon_es`  
+
+**Red Hat based systems**
 `/usr/share/logstash/bin/logstash-plugin install logstash-output-amazon_es`  
 
+
+## Relevant information
 Everything you need to know about Logstash Plugins can be found in [Logstash Official Page](https://www.elastic.co/guide/en/logstash/current/index.html).
