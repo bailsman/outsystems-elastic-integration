@@ -2,7 +2,7 @@
 Capture other relevant information for the usage of this repository assets/artifacts that should act like maintenance.
 
 :warning: **Important Note(s)**
-* Although OutSystems does is best on providing good documentation, this comes without any warranty associated and we more than welcome feedback to improve it.
+* Although OutSystems does is best on providing good documentation, this comes without any warranty associated and OutSystems welcome all feedback to improve it.
 
 <br>
 
