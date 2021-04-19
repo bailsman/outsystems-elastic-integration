@@ -1,6 +1,6 @@
 # How to use the Logstash accelerators
 
-:Warning: **Important Note(s)**
+⚠️ **Important Note(s)**
 * You need to set up Elasticsearch (using the respective accelerators) before doing anything with the Logstash accelerators.
 
 ## About
