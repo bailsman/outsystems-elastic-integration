@@ -19,7 +19,7 @@ This is possible, for now, using one of 3 ways:
 
 <br>
 
-So, if both conditions stated in above **Important Note(s)** are assure, first and foremost, you need to rename the file [logstash-config.txt](config/logstash-config.txt) to `/etc/sysconfig/logstash`, review very carefully all the environment variables in that file, and make the necessary adjustments if needed.
+So, if both conditions stated in above **Important Note(s)** are assured, first and foremost, you need to rename the file [logstash-config.txt](config/logstash-config.txt) to `/etc/sysconfig/logstash`, review very carefully all the environment variables in that file, and make the necessary adjustments if needed.
 
 
 ## Run one pipeline at a time
